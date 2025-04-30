@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SpectacleApp</string>
+    <string name="image_spectacle">image_spectacle</string>
+    <string name="nos_spectacles">Nos Spectacles</string>
+    <string name="rubriques_du_spectacle">Rubriques du spectacle :</string>
+    <string name="reserver">Réserver</string>
+    <string name="informations_client">Informations client</string>
+    <string name="select_seats_instructions">Sélectionnez vos sièges en cliquant dessus</string>
+    <string name="confirm_selection">Confirmer la sélection</string>
+    <string name="selected_seats">%1$d sièges sélectionnés: %2$s</string>
+    <string name="siege_description">Siège de spectacle</string>
+    <string name="select_category">Choisir une catégorie</string>
+    <string name="select_lieu">Choisir un lieu</string>
+    <string name="reset">Réinitialiser</string>
+    <string name="reserver_maintenant">Réserver</string>
+    <string name="dates_et_lieux">Dates et Lieux</string>
+    <string name="retour_l_accueil">Retour à l\'accueil</string>
+    <string name="mes_r_servations">Mes réservations</string>
+    <string name="reservation_confirmation">Votre réservation a été confirmée!\n\nUn email vous a été envoyé.</string>
+    <string name="payment_success">Paiement réussi</string>
+    <string name="error_payment">Erreur lors du paiement</string>
+</resources>
