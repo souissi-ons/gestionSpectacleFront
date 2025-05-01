@@ -2,11 +2,14 @@ package com.example.spectacleapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -129,17 +132,46 @@ public class MainActivity extends AppCompatActivity {
         searchView = findViewById(R.id.searchView);
 
         searchView.setupWithSearchBar(searchBar);
-        searchView.getEditText().setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                filterSpectacles(searchView.getText().toString());
-                searchBar.setText(searchView.getText());
-                searchView.hide();
-                return true;
-            }
-            return false;
-        });
 
-        searchBar.setOnClickListener(v -> searchView.show());
+        // Configurez l'EditText du SearchView
+        EditText editText = searchView.getEditText();
+        if (editText != null) {
+            editText.setHint("Rechercher un spectacle...");
+            editText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+
+            // Gestion de la recherche
+            editText.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    String query = editText.getText().toString();
+                    filterSpectacles(query);
+                    searchBar.setText(query); // Met à jour le texte dans la SearchBar
+                    searchView.hide();
+                    return true;
+                }
+                return false;
+            });
+
+            // Mise à jour en temps réel
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    searchBar.setText(s.toString()); // Met à jour en temps réel
+                    filterSpectacles(s.toString());
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {}
+            });
+        }
+
+        // Gestion du clic sur la SearchBar
+        searchBar.setOnClickListener(v -> {
+            searchView.show();
+            searchView.getEditText().requestFocus();
+        });
     }
 
     private void applyFilters() {

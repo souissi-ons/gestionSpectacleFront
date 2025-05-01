@@ -155,7 +155,6 @@ public class PaymentActivity extends AppCompatActivity {
             dto.setPrenom(getIntent().getStringExtra("PRENOM"));
             dto.setEmail(getIntent().getStringExtra("EMAIL"));
             dto.setTelephone(getIntent().getStringExtra("TELEPHONE"));
-
         }
         PaymentInfoDTO paymentInfo = new PaymentInfoDTO();
         paymentInfo.setCardNumber(etCardNumber.getText().toString());

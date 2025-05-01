@@ -59,11 +59,12 @@ public class ReservationDTO {
 
 
 
-    public ReservationDTO(long dateLieuId, int places, String nom, String prenom) {
+    public ReservationDTO(long dateLieuId, int places, String nom, String prenom, String telephone) {
         this.spectacleDateLieuId = dateLieuId;
         this.nbPlaces = places;
         this.nom = nom;
         this.prenom = prenom;
+        this.telephone=telephone;
         this.dateReservation = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
                 .format(new Date());
     }

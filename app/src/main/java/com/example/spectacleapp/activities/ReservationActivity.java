@@ -136,7 +136,6 @@ public class ReservationActivity extends AppCompatActivity {
         intent.putExtra("PRENOM", etPrenom.getText().toString());
         intent.putExtra("EMAIL", etEmail.getText().toString());
         intent.putExtra("TELEPHONE", etTelephone.getText().toString());
-        // Assurez-vous que cette valeur est correctement passée
         intent.putExtra("DATE_LIEU_ID", dateLieuId);
         intent.putExtra("NB_PLACES", Integer.parseInt(etNbPlaces.getText().toString()));
         startActivity(intent);
